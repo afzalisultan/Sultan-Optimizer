@@ -1,35 +1,45 @@
 
 @echo off
-title Fortnite Gaming Boost
+title FORTNITE ULTIMATE GAMING BOOST
 color 0A
 
-echo ========================================
-echo   FORTNITE FPS - MOUSE - KEYBOARD BOOST
-echo ========================================
-echo.
+:: =========================================
+:: FORTNITE ULTIMATE GAMING OPTIMIZER
+:: FPS - MOUSE - KEYBOARD - LOW INPUT LAG
+:: =========================================
 
-:: 1. High Performance Power Plan
-echo Activating High Performance...
+:: 1. Ultimate Performance Power Plan
+echo [1/6] Activating Ultimate Performance...
+powercfg /duplicatescheme e9a42b02-d5df-448d-aa00-03f14749eb61
 powercfg /setactive SCHEME_MIN
 
-:: 2. Disable Windows Mouse Acceleration
-echo Optimizing Mouse...
+:: 2. Mouse Optimization
+echo [2/6] Optimizing Mouse...
 reg add "HKCU\Control Panel\Mouse" /v MouseSpeed /t REG_SZ /d 0 /f
 reg add "HKCU\Control Panel\Mouse" /v MouseThreshold1 /t REG_SZ /d 0 /f
 reg add "HKCU\Control Panel\Mouse" /v MouseThreshold2 /t REG_SZ /d 0 /f
 
 :: 3. Enable Windows Game Mode
-echo Enabling Game Mode...
+echo [3/6] Enabling Game Mode...
 reg add "HKCU\Software\Microsoft\GameBar" /v AutoGameModeEnabled /t REG_DWORD /d 1 /f
 reg add "HKCU\Software\Microsoft\GameBar" /v AllowAutoGameMode /t REG_DWORD /d 1 /f
 
-:: 4. Open Windows Game Mode Settings
+:: 4. Disable Background Game Recording
+echo [4/6] Disabling Background Recording...
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\GameDVR" /v AppCaptureEnabled /t REG_DWORD /d 0 /f
+reg add "HKCU\System\GameConfigStore" /v GameDVR_Enabled /t REG_DWORD /d 0 /f
+
+:: 5. Open Windows Gaming Settings
+echo [5/6] Opening Gaming Settings...
 start ms-settings:gaming-gamemode
 
-echo.
-echo ========================================
-echo Gaming Boost completed!
-echo Restart Windows before playing.
-echo ========================================
-pause
+:: 6. Open Mouse Settings
+echo [6/6] Opening Mouse Settings...
+start ms-settings:mousetroubleshoot
 
+echo.
+echo =========================================
+echo ULTIMATE GAMING BOOST COMPLETED!
+echo Restart your PC before playing Fortnite.
+echo =========================================
+pause
