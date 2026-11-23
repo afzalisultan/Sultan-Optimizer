@@ -1,1 +1,35 @@
 
+@echo off
+title Fortnite Gaming Boost
+color 0A
+
+echo ========================================
+echo   FORTNITE FPS - MOUSE - KEYBOARD BOOST
+echo ========================================
+echo.
+
+:: 1. High Performance Power Plan
+echo Activating High Performance...
+powercfg /setactive SCHEME_MIN
+
+:: 2. Disable Windows Mouse Acceleration
+echo Optimizing Mouse...
+reg add "HKCU\Control Panel\Mouse" /v MouseSpeed /t REG_SZ /d 0 /f
+reg add "HKCU\Control Panel\Mouse" /v MouseThreshold1 /t REG_SZ /d 0 /f
+reg add "HKCU\Control Panel\Mouse" /v MouseThreshold2 /t REG_SZ /d 0 /f
+
+:: 3. Enable Windows Game Mode
+echo Enabling Game Mode...
+reg add "HKCU\Software\Microsoft\GameBar" /v AutoGameModeEnabled /t REG_DWORD /d 1 /f
+reg add "HKCU\Software\Microsoft\GameBar" /v AllowAutoGameMode /t REG_DWORD /d 1 /f
+
+:: 4. Open Windows Game Mode Settings
+start ms-settings:gaming-gamemode
+
+echo.
+echo ========================================
+echo Gaming Boost completed!
+echo Restart Windows before playing.
+echo ========================================
+pause
+
